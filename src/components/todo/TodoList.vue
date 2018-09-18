@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id">
+    <ul class="list-group">
+      <li class="list-group-item" v-for="todo in todos" :key="todo.id">
         <router-link :style="{ 'text-decoration': todo.completed?'line-through':''}"
         :to="{name: 'todo', params: {id: todo.id}}">{{ todo.id }} - {{ todo.title }}</router-link>
       </li>
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { httpService } from "@/services/http.service";
+import { todoService } from '@/services/todo.service';
 
 @Component({
   name: "todo-list"
@@ -21,9 +21,9 @@ export default class TodoList extends Vue {
 
   mounted() {
     console.log("todo-list mounted");
-    httpService.get(`https://jsonplaceholder.typicode.com/todos`).then(res => {
+    todoService.list().then(res => {
       console.log(res);
-      this.todos = res.data.filter((e: any) => e.userId === 1);
+      this.todos = res.data;
     });
   }
 }

@@ -30,6 +30,10 @@ export class HttpService {
     public put(restUrl: string, data: any): AxiosPromise<any> {
         return axios.put(this.withApi(restUrl), data, this.defaultConf);
     }
+
+    public delete(restUrl: string): AxiosPromise<any> {
+        return axios.delete(this.withApi(restUrl));
+    }
 }
 
 // Export a singleton instance

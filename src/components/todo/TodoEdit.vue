@@ -11,7 +11,7 @@
     <div v-else class="card-body">
 
       <label>Created by:</label>
-      User {{ todo.userId }}
+      {{ todo.author }}
 
       <div class="form-check">
         <input id="todo-completed" type="checkbox" class="form-check-input" v-model="todo.completed">
@@ -24,8 +24,8 @@
       </div>
     </div>
     <div class="card-footer">
-      <button class="btn btn-primary float-right ml-2 ">Save</button>
-      <button class="btn btn-secondary float-right">Annuller</button>
+      <button class="btn btn-primary float-right ml-2" @click="saveTodo">Save</button>
+      <button class="btn btn-secondary float-right" @click="deleteTodo">Delete</button>
     </div>
   </div>
 </template>
@@ -33,29 +33,39 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { httpService } from "@/services/http.service";
+import { todoService } from '@/services/todo.service';
 
 @Component({
   name: "todo-edit"
 })
 export default class ToDoListComponent extends Vue {
   @Prop({ required: true })
-  private todoId!: string;
+  private todoId!: any;
   private todo: any = {};
   private loading: boolean = false;
 
-  created() {
-    console.log(`https://jsonplaceholder.typicode.com/todos/${this.todoId}`);
-
-  }
-
   @Watch("todoId", { immediate: true })
   loadTodo() {
-    this.loading = true;
-    httpService
-      .get(`https://jsonplaceholder.typicode.com/todos/${this.todoId}`)
-      .then(res => {
-        this.todo = res.data;
-      }).finally( () => { this.loading = false});
+    if (this.todoId === 'new'){
+      this.todo = {
+        author: "User",
+        title: "",
+        completed: false
+      }
+    } else {
+      this.loading = true;
+      todoService.get(this.todoId).then(res => {
+          this.todo = res.data;
+        }).finally( () => { this.loading = false});
+    }
+  }
+
+  saveTodo(){
+    todoService.save(this.todo).then(res => this.$router.go(this.$router.currentRoute) )
+  }
+
+  deleteTodo(){
+    todoService.delete(this.todo.id).then(res => this.$router.go(this.$router.currentRoute) )
   }
 }
 </script>
