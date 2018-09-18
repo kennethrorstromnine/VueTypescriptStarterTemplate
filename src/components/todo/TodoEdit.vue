@@ -1,5 +1,5 @@
 <template>
-  <div v-if="todo" class="card">
+  <div class="card">
     <div class="card-header">
       Edit Todo
     </div>
@@ -25,7 +25,7 @@
     </div>
     <div class="card-footer">
       <button class="btn btn-primary float-right ml-2" @click="saveTodo">Save</button>
-      <button class="btn btn-secondary float-right" @click="deleteTodo">Delete</button>
+      <button class="btn btn-secondary float-right" :disabled="!todo.id" @click="deleteTodo">Delete</button>
     </div>
   </div>
 </template>
@@ -33,39 +33,57 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { httpService } from "@/services/http.service";
-import { todoService } from '@/services/todo.service';
+import { todoService } from "@/services/todo.service";
+import store from "@/store";
 
 @Component({
   name: "todo-edit"
 })
 export default class ToDoListComponent extends Vue {
-  @Prop({ required: true })
   private todoId!: any;
   private todo: any = {};
   private loading: boolean = false;
 
-  @Watch("todoId", { immediate: true })
+  @Watch("$route.params.id", { immediate: true })
   loadTodo() {
-    if (this.todoId === 'new'){
+    this.todoId = this.$route.params.id;
+    if (this.todoId === "new") {
       this.todo = {
         author: "User",
         title: "",
         completed: false
-      }
+      };
     } else {
       this.loading = true;
-      todoService.get(this.todoId).then(res => {
+      todoService
+        .get(this.todoId)
+        .then(res => {
           this.todo = res.data;
-        }).finally( () => { this.loading = false});
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     }
   }
 
-  saveTodo(){
-    todoService.save(this.todo).then(res => this.$router.go(this.$router.currentRoute) )
+  saveTodo() {
+    todoService.save(this.todo).then(res => {
+      store.dispatch("FETCH_TODOS");
+      this.$router.push({ params: { id: res.data.id } });
+    });
   }
 
-  deleteTodo(){
-    todoService.delete(this.todo.id).then(res => this.$router.go(this.$router.currentRoute) )
+  deleteTodo() {
+    todoService.delete(this.todo.id).then(res => {
+      store.dispatch("FETCH_TODOS").then(res => {
+        this.$router.push({
+          params: { id: this.$store.getters.firstTodo.id }
+        });
+      });
+    });
   }
 }
 </script>
+
+<style scoped>
+</style>

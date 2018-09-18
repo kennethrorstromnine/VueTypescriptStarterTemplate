@@ -6,7 +6,7 @@ export class TodoService {
 
     private api = "";
 
-    public get(id: number): AxiosPromise<any> {
+    public get(id: string): AxiosPromise<any> {
         const restURl = `http://localhost:3000/todos/${id}`;
         return httpService.get(restURl);
     }

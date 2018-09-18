@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-8">
-      <todo-edit v-if="todoId" :todoId="todoId"></todo-edit>
+      <todo-edit v-if="$route.params.id"></todo-edit>
     </div>
 
   </div>
@@ -30,9 +30,9 @@ export default class Todo extends Vue {
     console.log("created");
   }
 
-  @Watch("$route", { immediate: true })
-  loadTodo() {
-    this.todoId = this.$route.params.id;
-  }
+  // @Watch("$route", { immediate: true })
+  // loadTodo() {
+  //   this.todoId = this.$route.params.id;
+  // }
 }
 </script>
