@@ -44,7 +44,7 @@ root
 │    ├── views
 │    ├─  forside.vue ??
 ├── test
-```  
+```
 
 ### Componenents `/components`
 
@@ -160,7 +160,7 @@ Visual Studio Code is the recommended coding editor
 ### Visual Studio Code plugins
 
 - Vetur
-- TSLint 
+- TSLint
 
 ### Chrome or Firefox
 
@@ -178,3 +178,4 @@ https://stackoverflow.com/questions/49176735/why-are-vue-single-file-components-
 
 https://webdevelop.pro/vuejs-with-typescript.html
 
+https://github.com/creationix/Nvm
