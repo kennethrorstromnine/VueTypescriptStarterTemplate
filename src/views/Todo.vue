@@ -23,16 +23,5 @@ import TodoEdit from "@/components/todo/TodoEdit.vue"; // @ is an alias to /src
     TodoEdit
   }
 })
-export default class Todo extends Vue {
-  todoId: string = "";
-
-  created() {
-    console.log("created");
-  }
-
-  // @Watch("$route", { immediate: true })
-  // loadTodo() {
-  //   this.todoId = this.$route.params.id;
-  // }
-}
+export default class Todo extends Vue {}
 </script>

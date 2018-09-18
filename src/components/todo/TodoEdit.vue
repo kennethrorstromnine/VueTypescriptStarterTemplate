@@ -4,7 +4,6 @@
       Edit Todo
     </div>
 
-
     <div v-if="loading" class="card-body">
       <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
     </div>
