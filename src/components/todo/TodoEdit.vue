@@ -32,7 +32,7 @@
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
 import { todoService } from "@/services/todo.service";
-import store from "@/store";
+import store from "@/store/store";
 
 @Component({
   name: "todo-edit"

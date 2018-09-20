@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import store from "@/store";
+import store from "@/store/store";
 import { mapGetters } from "vuex";
 
 @Component({
