@@ -2,7 +2,7 @@
   <div>
     <h4>Din Huskeliste</h4>
     <ul class="list-group">
-      <li class="list-group-item" v-for="todo in todos" :key="todo.id">
+      <li class="list-group-item" v-for="todo in allTodos" :key="todo.id">
         <router-link :style="{ 'text-decoration': todo.completed?'line-through':''}"
         :to="{name: 'todo', params: {id: todo.id}}">{{ todo.title }}</router-link>
       </li>
@@ -17,16 +17,17 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { Getter } from "vuex-class";
 
 import { todoService } from "@/services/todo.service";
 import store from "@/store";
+import { mapGetters } from 'vuex';
 
 @Component({
-  name: "todo-list"
+  name: "todo-list",
+  computed: mapGetters(['allTodos'])
 })
 export default class TodoList extends Vue {
-  @Getter("allTodos") todos!: any[];
+  allTodos!: any[];
 
   created() {
     store.dispatch("FETCH_TODOS");
