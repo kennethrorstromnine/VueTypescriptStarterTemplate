@@ -73,7 +73,7 @@ export default class ToDoListComponent extends Vue {
   }
 
   deleteTodo() {
-    todoService.delete(this.todo.id).then(res => {
+    todoService.delete(this.todo.id).then(() => {
       store.dispatch("FETCH_TODOS").then(res => {
         this.$router.push({
           params: { id: this.$store.getters.firstTodo.id }

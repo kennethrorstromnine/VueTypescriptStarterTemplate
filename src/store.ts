@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { todoService } from '@/services/todo.service';
+import { todoService } from "@/services/todo.service";
 
 Vue.use(Vuex);
 

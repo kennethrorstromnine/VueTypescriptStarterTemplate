@@ -20,11 +20,11 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 import { todoService } from "@/services/todo.service";
 import store from "@/store";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 @Component({
   name: "todo-list",
-  computed: mapGetters(['allTodos'])
+  computed: mapGetters(["allTodos"])
 })
 export default class TodoList extends Vue {
   allTodos!: any[];
