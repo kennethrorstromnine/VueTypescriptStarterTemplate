@@ -16,9 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-import { todoService } from "@/services/todo.service";
+import { Component, Vue } from "vue-property-decorator";
 import store from "@/store";
 import { mapGetters } from "vuex";
 

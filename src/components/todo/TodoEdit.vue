@@ -30,8 +30,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import { httpService } from "@/services/http.service";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import { todoService } from "@/services/todo.service";
 import store from "@/store";
 
@@ -83,6 +82,3 @@ export default class ToDoListComponent extends Vue {
   }
 }
 </script>
-
-<style scoped>
-</style>
