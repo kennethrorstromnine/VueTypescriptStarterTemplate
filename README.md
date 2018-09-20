@@ -1,4 +1,4 @@
-[Dansk Guide](https://github.com/kennethrorstromnine/VueTypescriptStarterTemplate/blob/master/README_DA.md)
+[**Dansk udgave**](https://github.com/kennethrorstromnine/VueTypescriptStarterTemplate/blob/master/README_DA.md)
 
 # Vue Typescript Starter Template
 
