@@ -4,20 +4,20 @@ import { AxiosPromise, AxiosResponse } from "axios";
 
 export class TodoService {
 
-    private api = "";
+    private api = "http://localhost:3000";
 
     public get(id: string): AxiosPromise<any> {
-        const restURl = `http://localhost:3000/todos/${id}`;
+        const restURl = `${this.api}/todos/${id}`;
         return httpService.get(restURl);
     }
 
     public list(): AxiosPromise<any[]> {
-        const restURl = `http://localhost:3000/todos`;
+        const restURl = `${this.api}/todos`;
         return httpService.get(restURl);
     }
 
     public save(model: { id?: number }): AxiosPromise<any> {
-        let restURl = `http://localhost:3000/todos`;
+        let restURl = `${this.api}/todos`;
         if (model.id) {
             restURl = `${restURl}/${model.id}`;
             return httpService.put(restURl, model);
@@ -28,7 +28,7 @@ export class TodoService {
     }
 
     public delete(id: number): AxiosPromise<any> {
-        const restURl = `http://localhost:3000/todos/${id}`;
+        const restURl = `${this.api}/todos/${id}`;
         return httpService.delete(restURl);
     }
 }
