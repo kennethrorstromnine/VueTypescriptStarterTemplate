@@ -37,7 +37,7 @@ import store from "@/store/store";
 @Component({
   name: "todo-edit"
 })
-export default class ToDoListComponent extends Vue {
+export default class TodoEdit extends Vue {
   private todoId!: any;
   private todo: any = {};
   private loading: boolean = false;

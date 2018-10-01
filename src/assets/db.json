@@ -15,13 +15,13 @@
     {
       "author": "User",
       "title": "Huske at købe bananer",
-      "completed": false,
+      "completed": true,
       "id": 6
     },
     {
       "author": "User",
       "title": "qwesq",
-      "completed": false,
+      "completed": true,
       "id": 7
     }
   ]
