@@ -2,6 +2,9 @@
 import { httpService } from "@/services/http.service";
 import { AxiosPromise, AxiosResponse } from "axios";
 
+/**
+ * Eksempel på en service
+ */
 export class SpecificService {
 
     private api = "";
