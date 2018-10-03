@@ -12,7 +12,7 @@ describe("Component ListPosts.vue", () => {
   const wrapper = mount(ListPosts); // mount = rendere alle komponenter
 
   it("renders the correct markup", () => {
-    expect(wrapper.html()).toContain("<h2>List Posts</h2>");
+    expect(wrapper.html()).toContain("<h2>Kalder service</h2>");
     // console.log(wrapper.html());
   });
 
