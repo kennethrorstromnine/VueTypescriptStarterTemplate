@@ -1,13 +1,13 @@
 
-import { httpService } from "@/services/http.service";
-import { AxiosPromise, AxiosResponse } from "axios";
+import { httpService } from '@/services/http.service';
+import { AxiosPromise, AxiosResponse } from 'axios';
 
 /**
  * Eksempel på en service
  */
 export class SpecificService {
 
-    private api = "";
+    private api = '';
 
     public get(): AxiosPromise<any> {
         const restURl = `https://jsonplaceholder.typicode.com/get`;

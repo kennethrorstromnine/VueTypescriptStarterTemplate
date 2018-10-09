@@ -9,17 +9,11 @@
     ]
   },
   "rules": {
-    "arrow-parens": false,
-    "quotemark": [true, "double"],
+    "quotemark": [true, "single"],
     "indent": [true, "spaces", 2],
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false,
-    "trailing-comma": false,
-    "no-console": false,
-    "member-ordering": false,
-    "member-access": false,
-    "forin":false
+    "no-consecutive-blank-lines": false
   }
 }

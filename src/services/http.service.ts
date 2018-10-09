@@ -1,13 +1,16 @@
-import axios, { AxiosPromise, AxiosResponse, AxiosRequestConfig } from "axios";
+import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 
 
 // Set Api
-const api = "";
+const api = '';
 
+/**
+ * Service that wraps Axios.
+ */
 export class HttpService {
 
     private defaultConf: AxiosRequestConfig = {
-        headers: { "X-Requested-With": "XMLHttpRequest" },
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
         withCredentials: true,
     };
 
