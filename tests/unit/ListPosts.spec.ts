@@ -17,17 +17,12 @@ localVue.use(BootstrapVue); // Vi bruger bootstrap-vue i komponenten, så den sk
 
 describe('Component ListPosts.vue', () => {
 
-<<<<<<< HEAD
   const wrapper = shallowMount(ListPosts, {
     localVue,
   }); // mount = rendere alle komponenter
 
   it('renders the correct markup', () => {
     expect(wrapper.html()).toContain('vises en liste');
-=======
-  it("renders the correct markup", () => {
-    expect(wrapper.html()).toContain("<h2>Kalder service</h2>");
->>>>>>> abc1614a70ba81987d659c1564c50238b7fde422
     // console.log(wrapper.html());
   });
 
